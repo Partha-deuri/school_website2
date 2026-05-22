@@ -1,90 +1,248 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mandatory Disclosure | GHSS Jengging</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-    <nav >
-        <div class="logo-container">
-            <span class="school-name-nav" style="color: white; font-size: 1.8rem; font-weight: 600;">GHSS Jengging</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="facilities.html">Facilities</a></li>
-            <li><a href="faculty.html">Faculty</a></li>
-            <li><a href="student-corner.html">Student Corner</a></li>
-            <li><a href="mandatory-disclosure.html" class="active">Mandatory Disclosure</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <header class="page-header">
-        <div>
-            <h1>Mandatory Public Disclosure</h1>
-            <p>Compliance with CBSE Appendix-IX Guidelines</p>
-        </div>
-    </header>
-
-    <main class="container" style="padding: 60px 0;">
-        
-        <div class="disclosure-category">
-            <h2 class="category-header">A. General Information</h2>
-            <div class="table-wrapper">
-                <table class="disclosure-table">
-                    <tr><th style="width: 10%;">1</th><td style="width: 40%;">Name of the School</td><td>Government Higher Secondary School, Jengging</td></tr>
-                    <tr><th>2</th><td>Affiliation No. (if applicable)</td><td>[Enter Number]</td></tr>
-                    <tr><th>3</th><td>School Code (if applicable)</td><td>[Enter Code]</td></tr>
-                    <tr><th>4</th><td>Complete Address with PIN Code</td><td>Jengging, Siang District, Arunachal Pradesh, India - [Enter PIN]</td></tr>
-                    <tr><th>5</th><td>Principal Name & Qualification</td><td>[Principal Name], [Qualifications]</td></tr>
-                    <tr><th>6</th><td>School Email ID</td><td>principal.ghssjengging@example.com</td></tr>
-                    <tr><th>7</th><td>Phone No.</td><td>+91 [Enter Phone Number]</td></tr>
-                </table>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mandatory Disclosure | GHSS Jengging</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <nav>
+            <div class="logo-container">
+                <span class="school-name-nav">GHSS Jengging</span>
             </div>
-        </div>
 
-        <div class="disclosure-category">
-            <h2 class="category-header">B. Documents and Certificates</h2>
-            <div class="table-wrapper">
-                <table class="disclosure-table">
-                    <tr><th style="width: 10%;">1</th><td style="width: 60%;">Copies of Affiliation/Upgradation Letter</td><td><a href="assets/docs/affiliation_letter.pdf" target="_blank" class="doc-link">View Document <span>📄</span></a></td></tr>
-                    <tr><th>2</th><td>Trust/Society Registration Certificate</td><td><a href="assets/docs/society_registration.pdf" target="_blank" class="doc-link">View Document <span>📄</span></a></td></tr>
-                    <tr><th>3</th><td>No Objection Certificate (NOC) from State Govt.</td><td><a href="assets/docs/noc.pdf" target="_blank" class="doc-link">View Document <span>📄</span></a></td></tr>
-                    <tr><th>4</th><td>Recognition Certificate under RTE Act, 2009</td><td><a href="assets/docs/recognition.pdf" target="_blank" class="doc-link">View Document <span>📄</span></a></td></tr>
-                    <tr><th>5</th><td>Valid Building Safety Certificate</td><td><a href="assets/docs/building_safety.pdf" target="_blank" class="doc-link">View Document <span>📄</span></a></td></tr>
-                    <tr><th>6</th><td>Valid Fire Safety Certificate</td><td><a href="assets/docs/fire_safety.pdf" target="_blank" class="doc-link">View Document <span>📄</span></a></td></tr>
-                    <tr><th>7</th><td>Valid Water, Health and Sanitation Certificates</td><td><a href="assets/docs/health_sanitation.pdf" target="_blank" class="doc-link">View Document <span>📄</span></a></td></tr>
-                </table>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </div>
 
-    </main>
-
-    <footer id="contact" style="background: var(--primary-blue); color: var(--text-light); padding: 60px 0 20px;">
-        <div class="container footer-content" style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px;">
-            <div class="footer-info">
-                <h3 style="color: var(--accent-gold); margin-bottom: 15px;">Contact Us</h3>
-                <p>Govt Higher Secondary School Jengging,</p>
-                <p>Jengging, Siang District,</p>
-                <p>Arunachal Pradesh - [PIN Code], India</p>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="facilities.html">Facilities</a></li>
+                <li><a href="faculty.html">Faculty</a></li>
+                <li><a href="student-corner.html">Student Corner</a></li>
+                <li>
+                    <a href="mandatory-disclosure.html"  class="active">Mandatory Disclosure</a>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <header class="page-header">
+            <div>
+                <h1>Mandatory Public Disclosure</h1>
+                <p>Compliance with CBSE Appendix-IX Guidelines</p>
             </div>
-            <div class="footer-links">
-                <h3 style="color: var(--accent-gold); margin-bottom: 15px;">Quick Links</h3>
-                <ul style="list-style: none; padding: 0; line-height: 2;">
-                    <li><a href="mandatory-disclosure.html" style="color: white; text-decoration: none;">CBSE Mandatory Disclosure</a></li>
-                    <li><a href="contact.html" style="color: white; text-decoration: none;">Contact Administration</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright" style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 20px;">
-            <p>&copy; 2026 GHSS Jengging. All Rights Reserved.</p>
-        </div>
-    </footer>
+        </header>
 
-    <script src="js/main.js"></script>
-</body>
+        <main class="container" style="padding: 60px 0">
+            <div class="disclosure-category">
+                <h2 class="category-header">A. General Information</h2>
+                <div class="table-wrapper">
+                    <table class="disclosure-table">
+                        <tr>
+                            <th style="width: 10%">1</th>
+                            <td style="width: 40%">Name of the School</td>
+                            <td>
+                                Government Higher Secondary School, Jengging
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>Affiliation No. (if applicable)</td>
+                            <td>[Enter Number]</td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>School Code (if applicable)</td>
+                            <td>[Enter Code]</td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>Complete Address with PIN Code</td>
+                            <td>
+                                Jengging, Siang District, Arunachal Pradesh,
+                                India - [Enter PIN]
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>Principal Name & Qualification</td>
+                            <td>[Principal Name], [Qualifications]</td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td>School Email ID</td>
+                            <td>principal.ghssjengging@example.com</td>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <td>Phone No.</td>
+                            <td>+91 [Enter Phone Number]</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="disclosure-category">
+                <h2 class="category-header">B. Documents and Certificates</h2>
+                <div class="table-wrapper">
+                    <table class="disclosure-table">
+                        <tr>
+                            <th style="width: 10%">1</th>
+                            <td style="width: 60%">
+                                Copies of Affiliation/Upgradation Letter
+                            </td>
+                            <td>
+                                <a
+                                    href="assets/docs/affiliation_letter.pdf"
+                                    target="_blank"
+                                    class="doc-link"
+                                    >View Document <span>📄</span></a
+                                >
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>Trust/Society Registration Certificate</td>
+                            <td>
+                                <a
+                                    href="assets/docs/society_registration.pdf"
+                                    target="_blank"
+                                    class="doc-link"
+                                    >View Document <span>📄</span></a
+                                >
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>
+                                No Objection Certificate (NOC) from State Govt.
+                            </td>
+                            <td>
+                                <a
+                                    href="assets/docs/noc.pdf"
+                                    target="_blank"
+                                    class="doc-link"
+                                    >View Document <span>📄</span></a
+                                >
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>Recognition Certificate under RTE Act, 2009</td>
+                            <td>
+                                <a
+                                    href="assets/docs/recognition.pdf"
+                                    target="_blank"
+                                    class="doc-link"
+                                    >View Document <span>📄</span></a
+                                >
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>Valid Building Safety Certificate</td>
+                            <td>
+                                <a
+                                    href="assets/docs/building_safety.pdf"
+                                    target="_blank"
+                                    class="doc-link"
+                                    >View Document <span>📄</span></a
+                                >
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td>Valid Fire Safety Certificate</td>
+                            <td>
+                                <a
+                                    href="assets/docs/fire_safety.pdf"
+                                    target="_blank"
+                                    class="doc-link"
+                                    >View Document <span>📄</span></a
+                                >
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <td>
+                                Valid Water, Health and Sanitation Certificates
+                            </td>
+                            <td>
+                                <a
+                                    href="assets/docs/health_sanitation.pdf"
+                                    target="_blank"
+                                    class="doc-link"
+                                    >View Document <span>📄</span></a
+                                >
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer
+            id="contact"
+            style="
+                background: var(--primary-blue);
+                color: var(--text-light);
+                padding: 60px 0 20px;
+            "
+        >
+            <div
+                class="container footer-content"
+                style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px"
+            >
+                <div class="footer-info">
+                    <h3 style="color: var(--accent-gold); margin-bottom: 15px">
+                        Contact Us
+                    </h3>
+                    <p>Govt Higher Secondary School Jengging,</p>
+                    <p>Jengging, Siang District,</p>
+                    <p>Arunachal Pradesh - [PIN Code], India</p>
+                </div>
+                <div class="footer-links">
+                    <h3 style="color: var(--accent-gold); margin-bottom: 15px">
+                        Quick Links
+                    </h3>
+                    <ul style="list-style: none; padding: 0; line-height: 2">
+                        <li>
+                            <a
+                                href="mandatory-disclosure.html"
+                                style="color: white; text-decoration: none"
+                                >CBSE Mandatory Disclosure</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="contact.html"
+                                style="color: white; text-decoration: none"
+                                >Contact Administration</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="copyright"
+                style="
+                    text-align: center;
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                    margin-top: 40px;
+                    padding-top: 20px;
+                "
+            >
+                <p>&copy; 2026 GHSS Jengging. All Rights Reserved.</p>
+            </div>
+        </footer>
+
+        <script src="js/main.js"></script>
+    </body>
 </html>

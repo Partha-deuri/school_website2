@@ -10,3 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Wait for the HTML to fully load
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    // Safety check: only run if both elements exist on the page
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            console.log("Hamburger clicked!"); // Helps with debugging
+        });
+    } else {
+        console.error("Could not find the hamburger or nav-links ID in the HTML.");
+    }
+    
+});

@@ -7,6 +7,17 @@
     --bg-light: #f9f9f9;
     --transition: all 0.3s ease;
 }
+/* =========================================
+   GLOBAL RESET & OVERFLOW FIX
+   ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* This acts as a hard stop for horizontal scrolling */
+}
 
 body {
     font-family: "Poppins", sans-serif;
@@ -417,4 +428,122 @@ footer a:hover {
     color: var(--accent-gold);
     text-decoration: underline;
     text-underline-offset: 4px;
+}
+
+/* =========================================
+   MAIN NAVIGATION (Transparent & Aligned)
+   ========================================= */
+nav {
+    display: flex;
+    flex-direction: row; /* Forces horizontal alignment */
+    justify-content: space-between; /* Pushes logo left, menu right */
+    align-items: center; 
+    flex-wrap: nowrap; 
+    padding: 20px 5%;
+    
+    background: transparent; /* Removes the blue background */
+    position: absolute; /* Allows it to float over the hero image */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.school-name-nav {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    font-weight: 600;
+    white-space: nowrap; /* MAGIC RULE 2: Prevents the school name from breaking into two lines */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." if the screen is incredibly tiny */
+}
+
+/* ... keep your existing .nav-links styles ... */
+
+/* =========================================
+   MOBILE HAMBURGER MENU
+   ========================================= */
+.hamburger {
+    display: none; 
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    flex-shrink: 0; /* MAGIC RULE 3: Prevents the icon from being squeezed or crushed */
+    margin-left: 15px; /* Adds a little breathing room between the logo and icon on tiny screens */
+}
+
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-gold);
+}
+
+/* =========================================
+   MOBILE HAMBURGER MENU
+   ========================================= */
+
+.hamburger .bar {
+    width: 28px;
+    height: 3px;
+    background-color: var(--text-light);
+    transition: 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Breakpoint: Triggers when the screen gets smaller than a standard desktop */
+@media (max-width: 992px) {
+    .hamburger {
+        display: flex; /* Shows the hamburger */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%; /* Drops right below the nav bar */
+        left: -100%; /* Hides it off-screen to the left */
+        flex-direction: column;
+        background-color: var(--primary-blue);
+        width: 100%;
+        text-align: center;
+        transition: 0.4s ease-in-out;
+        padding: 0; /* Removes padding when hidden */
+        box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-links.active {
+        left: 0; /* Slides the menu in */
+        padding: 20px 0; /* Adds padding back when visible */
+    }
+
+    .nav-links li {
+        margin: 15px 0; /* Spaces out the links vertically */
+    }
+
+    /* Animation: Turn hamburger into an "X" */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
 }
