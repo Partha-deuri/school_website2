@@ -1,7 +1,7 @@
 /* GLOBAL STYLES & VARIABLES */
 :root {
     --primary-blue: #001f3f; /* Deep Navy */
-    --accent-gold: #c5a059;  /* Gold/Crimson Accent */
+    --accent-gold: #c5a059; /* Gold/Crimson Accent */
     --text-dark: #333;
     --text-light: #fff;
     --bg-light: #f9f9f9;
@@ -9,67 +9,412 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     color: var(--text-dark);
     margin: 0;
     line-height: 1.8;
 }
 
-h1, h2, h3 { font-family: 'Playfair Display', serif; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", serif;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
 
 /* NAVIGATION (Transparent Overlay) */
 nav {
-    position: absolute; width: 100%; top: 0; z-index: 1000;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 5%; background: transparent; transition: var(--transition);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: transparent;
+    transition: var(--transition);
 }
-nav.scrolled { background: var(--primary-blue); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-.school-name-nav { color: var(--text-light); font-size: 1.8rem; font-weight: 600; }
-.nav-links { list-style: none; display: flex; }
-.nav-links li { margin-left: 30px; }
-.nav-links a { text-decoration: none; color: var(--text-light); font-weight: 600; opacity: 0.8; }
-.nav-links a.active, .nav-links a:hover { opacity: 1; border-bottom: 2px solid var(--accent-gold); }
+nav.scrolled {
+    background: var(--primary-blue);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.school-name-nav {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+.nav-links li {
+    margin-left: 30px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    opacity: 0.8;
+}
+.nav-links a.active,
+.nav-links a:hover {
+    opacity: 1;
+    border-bottom: 2px solid var(--accent-gold);
+}
 
 /* HERO SECTION (Beautiful Background) */
 .hero {
-    height: 100vh; position: relative;
+    height: 100vh;
+    position: relative;
     /* PLACEHOLDER: Replace with images/hero.jpg */
-    background: url('../images/hero_placeholder.jpg') no-repeat center center/cover;
-    display: flex; align-items: center; text-align: center; color: var(--text-light);
+    background: url("../images/hero_placeholder.jpg") no-repeat center
+        center/cover;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-light);
 }
-.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-.hero-content { position: relative; z-index: 1; width: 100%; }
-.hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
-.hero .highlight { color: var(--accent-gold); }
-.btn-primary { background: var(--accent-gold); color: var(--text-light); padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600; transition: var(--transition); }
-.btn-primary:hover { background: #b18d4e; transform: translateY(-3px); }
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.hero .highlight {
+    color: var(--accent-gold);
+}
+.btn-primary {
+    background: var(--accent-gold);
+    color: var(--text-light);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+.btn-primary:hover {
+    background: #b18d4e;
+    transform: translateY(-3px);
+}
 
 /* SECTIONS (General Styling) */
-section { padding: 80px 0; }
-section h2 { text-align: center; font-size: 2.8rem; margin-bottom: 50px; color: var(--primary-blue); }
+section {
+    padding: 80px 0;
+}
+section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    color: var(--primary-blue);
+}
 
 /* Principal Message Styling */
-.principal-message { background: var(--bg-light); }
-.signature { font-style: italic; font-weight: 600; margin-top: 20px; color: var(--accent-gold); }
-.img-placeholder { width: 100%; height: 400px; background: #ddd; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #666; border-radius: 10px; }
+.principal-message {
+    background: var(--bg-light);
+}
+.signature {
+    font-style: italic;
+    font-weight: 600;
+    margin-top: 20px;
+    color: var(--accent-gold);
+}
+.img-placeholder {
+    width: 100%;
+    height: 400px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #666;
+    border-radius: 10px;
+}
 
 /* News Styling */
-.news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.news-card { background: var(--text-light); padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.news-card {
+    background: var(--text-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
 
 /* FOOTER STYLING */
-footer { background: var(--primary-blue); color: var(--text-light); padding: 60px 0 20px; }
-.footer-content { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
-footer a { color: var(--text-light); text-decoration: none; opacity: 0.8; transition: var(--transition); }
-footer a:hover { opacity: 1; color: var(--accent-gold); }
-.copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 20px; }
+footer {
+    background: var(--primary-blue);
+    color: var(--text-light);
+    padding: 60px 0 20px;
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+footer a {
+    color: var(--text-light);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: var(--transition);
+}
+footer a:hover {
+    opacity: 1;
+    color: var(--accent-gold);
+}
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 40px;
+    padding-top: 20px;
+}
 
 /* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 768px) {
-    .grid-2 { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 2.5rem; }
-    nav { flex-direction: column; }
-    .nav-links { margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    nav {
+        flex-direction: column;
+    }
+    .nav-links {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+/* =========================================
+   INTERNAL PAGE STYLES (Faculty, Facilities, Contact, etc.)
+   ========================================= */
+
+/* --- 1. Shared Page Header --- */
+.page-header {
+    height: 40vh; /* Shorter than the homepage hero */
+    background: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.85)), url('../images/hero_placeholder.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    text-align: center;
+    padding-top: 80px; /* Offset to push content below the transparent navbar */
+}
+
+.page-header h1 { 
+    font-size: 3.5rem; 
+    color: var(--accent-gold); 
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* --- 2. Faculty Cards --- */
+.faculty-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 40px; 
+    margin-top: 50px; 
+}
+
+.faculty-card { 
+    background: var(--text-light); 
+    border-radius: 12px; 
+    overflow: hidden; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
+    text-align: center; 
+    padding-bottom: 25px; 
+    transition: var(--transition); 
+    border-bottom: 4px solid transparent;
+}
+
+.faculty-card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+    border-bottom: 4px solid var(--accent-gold);
+}
+
+.faculty-img { 
+    width: 100%; 
+    height: 300px; 
+    background: #e0e0e0; 
+    object-fit: cover; 
+}
+
+.faculty-info { 
+    padding: 20px 15px 0; 
+}
+
+.faculty-info h3 { 
+    color: var(--primary-blue); 
+    margin: 0 0 5px; 
+    font-family: 'Poppins', sans-serif; 
+    font-size: 1.4rem; 
+}
+
+.faculty-info p.role { 
+    color: var(--accent-gold); 
+    font-weight: 600; 
+    margin: 0 0 10px; 
+    font-size: 1rem;
+}
+
+.faculty-info p.qual { 
+    font-size: 0.9rem; 
+    color: #777; 
+}
+
+/* --- 3. Facilities & Student Corner Cards --- */
+.facilities-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 30px; 
+    margin-top: 40px;
+}
+
+.facility-card { 
+    background: var(--bg-light); 
+    border-left: 5px solid var(--accent-gold); 
+    padding: 30px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: var(--transition);
+}
+
+.facility-card:hover {
+    background: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.facility-card h3 { 
+    color: var(--primary-blue); 
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* --- 4. Contact Form Section --- */
+.contact-container { 
+    display: grid; 
+    grid-template-columns: 1fr 1.2fr; 
+    gap: 60px; 
+    margin-top: 40px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.contact-details h3 { 
+    color: var(--primary-blue); 
+    margin-bottom: 10px; 
+}
+
+.contact-form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+.contact-form input, 
+.contact-form textarea { 
+    width: 100%; 
+    padding: 15px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    font-family: 'Poppins', sans-serif; 
+    font-size: 1rem;
+    background: #fafafa;
+    transition: var(--transition);
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+}
+
+.contact-form button { 
+    border: none; 
+    cursor: pointer; 
+    font-size: 1.1rem;
+    padding: 15px;
+}
+
+/* --- 5. Responsive Adjustments for Internal Pages --- */
+@media (max-width: 992px) {
+    .contact-container {
+        grid-template-columns: 1fr; /* Stacks the contact info and form on tablets/phones */
+    }
+    .page-header h1 {
+        font-size: 2.8rem;
+    }
+}
+
+/* --- INTERNAL PAGE HEADERS (No Image Needed) --- */
+.page-header {
+    height: 35vh; 
+    /* Beautiful gradient fallback instead of an image */
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #004080 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    text-align: center;
+    padding-top: 60px; 
+    box-shadow: inset 0 -5px 15px rgba(0,0,0,0.2);
+}
+.page-header h1 { 
+    font-size: 3rem; 
+    color: var(--accent-gold); 
+    margin-bottom: 10px;
+}
+.page-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Beautiful, Minimalist Document Links */
+.doc-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    margin-left: 50px;
+}
+
+.doc-link:hover {
+    color: var(--accent-gold);
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
