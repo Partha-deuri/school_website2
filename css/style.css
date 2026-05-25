@@ -7,6 +7,7 @@
     --bg-light: #f9f9f9;
     --transition: all 0.3s ease;
 }
+
 /* =========================================
    GLOBAL RESET & OVERFLOW FIX
    ========================================= */
@@ -16,26 +17,21 @@
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden; /* This acts as a hard stop for horizontal scrolling */
-}
-
-body {
+    overflow-x: hidden;
     font-family: "Poppins", sans-serif;
     color: var(--text-dark);
     margin: 0;
     line-height: 1.8;
 }
 
-h1,
-h2,
-h3 {
-    font-family: "Playfair Display", serif;
-}
+h1, h2, h3 { font-family: "Playfair Display", serif; }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
+
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -43,269 +39,249 @@ h3 {
     align-items: center;
 }
 
-/* NAVIGATION (Transparent Overlay) */
+/* =========================================
+   MAIN NAVIGATION
+   ========================================= */
 nav {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; 
+    flex-wrap: nowrap; 
     padding: 20px 5%;
-    background: transparent;
-    transition: var(--transition);
-}
-nav.scrolled {
     background: var(--primary-blue);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
 }
+
+nav.scrolled {
+    background: var(--primary-blue) !important;
+    padding: 10px 5%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: fixed; 
+}
+
 .school-name-nav {
     color: var(--text-light);
     font-size: 1.8rem;
     font-weight: 600;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
+
 .nav-links {
-    list-style: none;
     display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-.nav-links li {
-    margin-left: 30px;
-}
+
+.nav-links li { margin-left: 25px; }
+
 .nav-links a {
-    text-decoration: none;
     color: var(--text-light);
+    text-decoration: none;
     font-weight: 600;
+    transition: var(--transition);
     opacity: 0.8;
 }
-.nav-links a.active,
-.nav-links a:hover {
+
+.nav-links a.active, .nav-links a:hover {
+    color: var(--accent-gold);
     opacity: 1;
     border-bottom: 2px solid var(--accent-gold);
 }
 
-/* HERO SECTION (Beautiful Background) */
+/* =========================================
+   MOBILE HAMBURGER MENU
+   ========================================= */
+.hamburger {
+    display: none; 
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    flex-shrink: 0; 
+    margin-left: 15px; 
+}
+
+.hamburger .bar {
+    width: 28px;
+    height: 3px;
+    background-color: var(--text-light);
+    transition: 0.3s ease;
+    border-radius: 3px;
+}
+
+@media (max-width: 992px) {
+    .hamburger { display: flex; }
+    
+    .nav-links {
+        position: absolute;
+        top: 100%; 
+        left: -100%; 
+        flex-direction: column;
+        background-color: var(--primary-blue);
+        width: 100%;
+        text-align: center;
+        transition: 0.4s ease-in-out;
+        padding: 0; 
+        box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    }
+    
+    .nav-links.active {
+        left: 0; 
+        padding: 20px 0; 
+    }
+    
+    .nav-links li { margin: 15px 0; }
+    
+    .hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+}
+
+/* =========================================
+   HOMEPAGE SPECIFIC STYLES
+   ========================================= */
+
+/* Hero Slideshow Section */
 .hero {
     height: 100vh;
     position: relative;
-    /* PLACEHOLDER: Replace with images/hero.jpg */
-    background: url("../images/hero_placeholder.jpg") no-repeat center
-        center/cover;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     color: var(--text-light);
+    padding: 0 20px;
+    overflow: hidden; 
 }
-.hero-overlay {
+
+.hero-slider {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
 }
+
+.hero-slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out; 
+}
+
+.hero-slider .slide.active { opacity: 1; }
+
 .hero-content {
     position: relative;
-    z-index: 1;
-    width: 100%;
-}
-.hero h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-.hero .highlight {
-    color: var(--accent-gold);
-}
-.btn-primary {
-    background: var(--accent-gold);
-    color: var(--text-light);
-    padding: 12px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: var(--transition);
-}
-.btn-primary:hover {
-    background: #b18d4e;
-    transform: translateY(-3px);
+    z-index: 10; 
+    max-width: 900px;
+    animation: fadeInUp 1s ease-out;
 }
 
-/* SECTIONS (General Styling) */
-section {
-    padding: 80px 0;
-}
-section h2 {
-    text-align: center;
-    font-size: 2.8rem;
-    margin-bottom: 50px;
-    color: var(--primary-blue);
+.hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
+.hero .highlight { color: var(--accent-gold); }
+.hero-btns { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
+
+.btn-primary { background: var(--accent-gold); color: var(--text-light); padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600; transition: var(--transition); }
+.btn-primary:hover { background: #b18d4e; transform: translateY(-3px); }
+
+.btn-secondary { background: transparent; border: 2px solid var(--accent-gold); color: var(--accent-gold); padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600; transition: var(--transition); }
+.btn-secondary:hover { background: var(--accent-gold); color: var(--text-light); transform: translateY(-3px); }
+
+/* Quick Explore Cards */
+.explore-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: -60px; position: relative; z-index: 10; padding: 0 5%; }
+.explore-card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: var(--transition); border-bottom: 4px solid transparent; }
+.explore-card:hover { transform: translateY(-10px); border-bottom-color: var(--accent-gold); }
+.explore-card h3 { color: var(--primary-blue); margin-bottom: 10px; }
+.explore-card a { color: var(--accent-gold); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 15px; }
+
+/* Notice Board */
+.notice-board { background: white; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); padding: 30px; border-left: 5px solid #d32f2f; }
+.notice-item { padding: 15px 0; border-bottom: 1px solid #eee; }
+.notice-item:last-child { border-bottom: none; }
+.notice-date { color: #d32f2f; font-weight: 600; font-size: 0.9rem; margin-bottom: 5px; display: block; }
+.notice-title { font-weight: 600; color: var(--primary-blue); text-decoration: none; transition: var(--transition); }
+.notice-title:hover { color: var(--accent-gold); }
+
+/* School Statistics (High Contrast) */
+.stats-section { background: var(--bg-light); padding: 80px 0; text-align: center; border-top: 1px solid #eaeaea; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+.stat-box h2 { font-size: 3.8rem; color: var(--primary-blue); margin: 0; line-height: 1; }
+.stat-box p { font-size: 1.1rem; font-weight: 600; color: var(--accent-gold); margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Principal Message Styling */
-.principal-message {
-    background: var(--bg-light);
-}
-.signature {
-    font-style: italic;
-    font-weight: 600;
-    margin-top: 20px;
-    color: var(--accent-gold);
-}
-.img-placeholder {
-    width: 100%;
-    height: 400px;
-    background: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    color: #666;
-    border-radius: 10px;
-}
-
-/* News Styling */
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-.news-card {
-    background: var(--text-light);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-/* FOOTER STYLING */
-footer {
-    background: var(--primary-blue);
-    color: var(--text-light);
-    padding: 60px 0 20px;
-}
-.footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
-}
-footer a {
-    color: var(--text-light);
-    text-decoration: none;
-    opacity: 0.8;
-    transition: var(--transition);
-}
-footer a:hover {
-    opacity: 1;
-    color: var(--accent-gold);
-}
-.copyright {
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 40px;
-    padding-top: 20px;
-}
-
-/* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 768px) {
-    .grid-2 {
-        grid-template-columns: 1fr;
-    }
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    nav {
-        flex-direction: column;
-    }
-    .nav-links {
-        margin-top: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+    .hero h1 { font-size: 2.5rem; }
+    .hero-btns { flex-direction: column; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .explore-grid { margin-top: 40px; }
 }
-/* =========================================
-   INTERNAL PAGE STYLES (Faculty, Facilities, Contact, etc.)
-   ========================================= */
 
-/* --- 1. Shared Page Header --- */
+/* =========================================
+   INTERNAL PAGE STYLES (Header & Shared)
+   ========================================= */
 .page-header {
-    height: 40vh; /* Shorter than the homepage hero */
-    background: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.85)), url('../images/hero_placeholder.jpg') center/cover;
+    height: 35vh; 
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #004080 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-light);
     text-align: center;
-    padding-top: 80px; /* Offset to push content below the transparent navbar */
+    padding-top: 60px; 
+    box-shadow: inset 0 -5px 15px rgba(0,0,0,0.2);
 }
+.page-header h1 { font-size: 3rem; color: var(--accent-gold); margin-bottom: 10px; }
+.page-header p { font-size: 1.1rem; opacity: 0.9; }
 
-.page-header h1 { 
-    font-size: 3.5rem; 
-    color: var(--accent-gold); 
-    margin-bottom: 10px;
+/* =========================================
+   MANDATORY DISCLOSURE TABLES
+   ========================================= */
+.disclosure-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    table-layout: fixed; 
+    word-wrap: break-word; 
 }
-
-.page-header p {
-    font-size: 1.2rem;
-    opacity: 0.9;
+.disclosure-table th, .disclosure-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
 }
+.disclosure-category { margin-bottom: 50px; }
+.category-header { font-size: 1.8rem; color: var(--primary-blue); border-bottom: 3px solid var(--accent-gold); padding-bottom: 10px; margin-bottom: 20px; }
+.doc-link { color: var(--primary-blue); text-decoration: none; font-weight: 600; transition: var(--transition); }
+.doc-link:hover { color: var(--accent-gold); text-decoration: underline; text-underline-offset: 4px; }
 
-/* --- 2. Faculty Cards --- */
-.faculty-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 40px; 
-    margin-top: 50px; 
-}
+/* Utility class for centering */
+.center-last-col th:last-child,
+.center-last-col td:last-child { text-align: center; }
+.center-last-col .doc-link { margin-left: 0 !important; }
 
-.faculty-card { 
-    background: var(--text-light); 
-    border-radius: 12px; 
-    overflow: hidden; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
-    text-align: center; 
-    padding-bottom: 25px; 
-    transition: var(--transition); 
-    border-bottom: 4px solid transparent;
-}
-
-.faculty-card:hover { 
-    transform: translateY(-10px); 
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
-    border-bottom: 4px solid var(--accent-gold);
-}
-
-.faculty-img { 
-    width: 100%; 
-    height: 300px; 
-    background: #e0e0e0; 
-    object-fit: cover; 
-}
-
-.faculty-info { 
-    padding: 20px 15px 0; 
-}
-
-.faculty-info h3 { 
-    color: var(--primary-blue); 
-    margin: 0 0 5px; 
-    font-family: 'Poppins', sans-serif; 
-    font-size: 1.4rem; 
-}
-
-.faculty-info p.role { 
-    color: var(--accent-gold); 
-    font-weight: 600; 
-    margin: 0 0 10px; 
-    font-size: 1rem;
-}
-
-.faculty-info p.qual { 
-    font-size: 0.9rem; 
-    color: #777; 
-}
-
-/* --- 3. Facilities & Student Corner Cards --- */
-.facilities-grid { 
+/* =========================================
+   FACILITIES & FACULTY STYLES
+   ========================================= */
+.facilities-grid, .faculty-grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
     gap: 30px; 
@@ -320,279 +296,20 @@ footer a:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.03);
     transition: var(--transition);
 }
+.facility-card:hover { background: white; box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+.facility-card h3 { color: var(--primary-blue); margin-bottom: 15px; font-size: 1.5rem; }
 
-.facility-card:hover {
-    background: white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-}
-
-.facility-card h3 { 
-    color: var(--primary-blue); 
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-/* --- 4. Contact Form Section --- */
-.contact-container { 
-    display: grid; 
-    grid-template-columns: 1fr 1.2fr; 
-    gap: 60px; 
-    margin-top: 40px;
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-
-.contact-details h3 { 
-    color: var(--primary-blue); 
-    margin-bottom: 10px; 
-}
-
-.contact-form { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 20px; 
-}
-
-.contact-form input, 
-.contact-form textarea { 
-    width: 100%; 
-    padding: 15px; 
-    border: 1px solid #ddd; 
-    border-radius: 8px; 
-    font-family: 'Poppins', sans-serif; 
-    font-size: 1rem;
-    background: #fafafa;
-    transition: var(--transition);
-}
-
-.contact-form input:focus, 
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--accent-gold);
-    background: white;
-    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
-}
-
-.contact-form button { 
-    border: none; 
-    cursor: pointer; 
-    font-size: 1.1rem;
-    padding: 15px;
-}
-
-/* --- 5. Responsive Adjustments for Internal Pages --- */
-@media (max-width: 992px) {
-    .contact-container {
-        grid-template-columns: 1fr; /* Stacks the contact info and form on tablets/phones */
-    }
-    .page-header h1 {
-        font-size: 2.8rem;
-    }
-}
-
-/* --- INTERNAL PAGE HEADERS (No Image Needed) --- */
-.page-header {
-    height: 35vh; 
-    /* Beautiful gradient fallback instead of an image */
-    background: linear-gradient(135deg, var(--primary-blue) 0%, #004080 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-light);
-    text-align: center;
-    padding-top: 60px; 
-    box-shadow: inset 0 -5px 15px rgba(0,0,0,0.2);
-}
-.page-header h1 { 
-    font-size: 3rem; 
-    color: var(--accent-gold); 
-    margin-bottom: 10px;
-}
-.page-header p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-/* Beautiful, Minimalist Document Links */
-.doc-link {
-    color: var(--primary-blue);
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition);
-    margin-left: 50px;
-}
-
-.doc-link:hover {
-    color: var(--accent-gold);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-}
-
-/* =========================================
-   MAIN NAVIGATION (Transparent & Aligned)
-   ========================================= */
-nav {
-    display: flex;
-    flex-direction: row; /* Forces horizontal alignment */
-    justify-content: space-between; /* Pushes logo left, menu right */
-    align-items: center; 
-    flex-wrap: nowrap; 
-    padding: 20px 5%;
-    
-    background: transparent; /* Removes the blue background */
-    position: absolute; /* Allows it to float over the hero image */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.school-name-nav {
-    color: var(--text-light);
-    font-size: 1.8rem;
-    font-weight: 600;
-    white-space: nowrap; /* MAGIC RULE 2: Prevents the school name from breaking into two lines */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Adds "..." if the screen is incredibly tiny */
-}
-
-/* ... keep your existing .nav-links styles ... */
-
-/* =========================================
-   MOBILE HAMBURGER MENU
-   ========================================= */
-.hamburger {
-    display: none; 
-    cursor: pointer;
-    flex-direction: column;
-    gap: 6px;
-    flex-shrink: 0; /* MAGIC RULE 3: Prevents the icon from being squeezed or crushed */
-    margin-left: 15px; /* Adds a little breathing room between the logo and icon on tiny screens */
-}
-
-
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    margin-left: 25px;
-}
-
-.nav-links a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.nav-links a:hover, .nav-links a.active {
-    color: var(--accent-gold);
-}
-
-/* =========================================
-   MOBILE HAMBURGER MENU
-   ========================================= */
-
-.hamburger .bar {
-    width: 28px;
-    height: 3px;
-    background-color: var(--text-light);
-    transition: 0.3s ease;
-    border-radius: 3px;
-}
-
-/* Breakpoint: Triggers when the screen gets smaller than a standard desktop */
-@media (max-width: 992px) {
-    .hamburger {
-        display: flex; /* Shows the hamburger */
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 100%; /* Drops right below the nav bar */
-        left: -100%; /* Hides it off-screen to the left */
-        flex-direction: column;
-        background-color: var(--primary-blue);
-        width: 100%;
-        text-align: center;
-        transition: 0.4s ease-in-out;
-        padding: 0; /* Removes padding when hidden */
-        box-shadow: 0 10px 15px rgba(0,0,0,0.2);
-    }
-
-    .nav-links.active {
-        left: 0; /* Slides the menu in */
-        padding: 20px 0; /* Adds padding back when visible */
-    }
-
-    .nav-links li {
-        margin: 15px 0; /* Spaces out the links vertically */
-    }
-
-    /* Animation: Turn hamburger into an "X" */
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-}
-
-
-/* =========================================
-   TABLE ALIGNMENT & UNIFORMITY FIXES
-   ========================================= */
-
-/* 1. Force all tables to respect strict sizing so they align perfectly */
-.disclosure-table {
-    table-layout: fixed; 
-    width: 100%;
-    word-wrap: break-word; /* Prevents long URLs from stretching columns */
-}
-
-/* 2. Utility class to center the final column of any table */
-.center-last-col th:last-child,
-.center-last-col td:last-child {
-    text-align: center;
-}
-
-/* 3. Ensure the PDF links look perfectly centered inside the centered column */
-.center-last-col .doc-link {
-    margin-left: 0 !important;
-}
-
-
-/* --- Facility Cards with Images --- */
+/* Cards with Images */
 .facility-card.image-card {
-    padding: 0; /* Removes padding so the image touches the edges */
+    padding: 0; 
     overflow: hidden;
     border-left: none; 
-    border-bottom: 5px solid var(--accent-gold); /* Moves the gold accent to the bottom */
+    border-bottom: 5px solid var(--accent-gold); 
 }
+.facility-card .facility-img { width: 100%; height: 250px; object-fit: cover; background: #e0e0e0; }
+.facility-content { padding: 25px; }
 
-.facility-card .facility-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    background: #e0e0e0; /* Gray placeholder color if image is missing */
-}
-
-.facility-content {
-    padding: 25px;
-}
-
-
-/* --- Text-Only Faculty Cards --- */
+/* Text-Only Faculty Cards */
 .faculty-card.no-image {
     padding: 35px 20px;
     border-top: 6px solid var(--primary-blue);
@@ -600,111 +317,14 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.faculty-card.no-image .faculty-info {
-    padding: 0; /* Resets padding since there's no image */
-}
-
-.faculty-card.no-image .subject-info {
-    font-size: 0.95rem;
-    color: #555;
-    margin-top: 15px;
-    background: var(--bg-light);
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #eee;
-}
-
-
-
-
-/* =========================================
-   HOMEPAGE SPECIFIC STYLES
-   ========================================= */
-
-/* Nav Scrolling Effect (Turns solid blue on scroll) */
-nav {
-    transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
-}
-nav.scrolled {
-    background: var(--primary-blue) !important;
-    padding: 10px 5%;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    position: fixed; /* Keeps it at the top when scrolling */
-}
-
-/* Beautiful Gradient Hero (Since no photos yet) */
-.hero {
-    height: 100vh;
-    background: linear-gradient(135deg, rgba(0, 31, 63, 0.9) 0%, rgba(0, 64, 128, 0.8) 100%), url('../images/hero_placeholder.jpg') center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-radius: 8px;
     text-align: center;
-    color: var(--text-light);
-    padding: 0 20px;
+    transition: var(--transition);
 }
-.hero-content {
-    max-width: 900px;
-    animation: fadeInUp 1s ease-out;
-}
-.hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
-.hero p { font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9; }
-.hero-btns { display: flex; gap: 20px; justify-content: center; }
-.btn-secondary { background: transparent; border: 2px solid var(--accent-gold); color: var(--accent-gold); padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600; transition: var(--transition); }
-.btn-secondary:hover { background: var(--accent-gold); color: var(--text-light); }
-
-/* Quick Explore Cards (Linking to your new pages) */
-.explore-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: -60px; position: relative; z-index: 10; padding: 0 5%; }
-.explore-card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: var(--transition); border-bottom: 4px solid transparent; }
-.explore-card:hover { transform: translateY(-10px); border-bottom-color: var(--accent-gold); }
-.explore-card h3 { color: var(--primary-blue); margin-bottom: 10px; }
-.explore-card a { color: var(--accent-gold); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 15px; }
-
-/* School Statistics (Updated for high contrast) */
-.stats-section { 
-    background: var(--bg-light); /* Soft light gray background */
-    padding: 80px 0; 
-    text-align: center; 
-    border-top: 1px solid #eaeaea; /* Subtle line to separate it from the main content */
-}
-.stats-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 30px; 
-}
-.stat-box h2 { 
-    font-size: 3.8rem; 
-    color: var(--primary-blue); /* Strong, authoritative navy numbers */
-    margin: 0; 
-    line-height: 1;
-}
-.stat-box p { 
-    font-size: 1.1rem; 
-    font-weight: 600; 
-    color: var(--accent-gold); /* Elegant gold labels */
-    margin-top: 10px; 
-    text-transform: uppercase; /* Makes it look very institutional and premium */
-    letter-spacing: 1px;
-}
-
-/* Notice Board */
-.notice-board { background: white; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); padding: 30px; border-left: 5px solid #d32f2f; }
-.notice-item { padding: 15px 0; border-bottom: 1px solid #eee; }
-.notice-item:last-child { border-bottom: none; }
-.notice-date { color: #d32f2f; font-weight: 600; font-size: 0.9rem; margin-bottom: 5px; display: block; }
-.notice-title { font-weight: 600; color: var(--primary-blue); text-decoration: none; font-family: 'Poppins', sans-serif; transition: var(--transition); }
-.notice-title:hover { color: var(--accent-gold); }
-
-/* Simple fade-in animation for the hero text */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.8rem; }
-    .hero-btns { flex-direction: column; }
-    .explore-grid { margin-top: 40px; }
-}
+.faculty-card.no-image:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.faculty-card.no-image .faculty-info h3 { color: var(--primary-blue); font-size: 1.4rem; margin: 0 0 5px; }
+.faculty-card.no-image .role { color: var(--accent-gold); font-weight: 600; margin: 0 0 5px; }
+.faculty-card.no-image .qual { font-size: 0.9rem; color: #777; margin-bottom: 15px; }
+.faculty-card.no-image .subject-info { font-size: 0.95rem; color: #555; background: var(--bg-light); padding: 10px; border-radius: 5px; border: 1px solid #eee; }
