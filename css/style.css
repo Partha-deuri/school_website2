@@ -623,3 +623,8 @@ nav.scrolled {
         animation-duration: 20s; /* Scrolls a bit faster on smaller screens */
     }
 }
+
+
+.contact-details{
+    padding: 15px;
+}
