@@ -547,3 +547,164 @@ nav {
         transform: translateY(-9px) rotate(-45deg);
     }
 }
+
+
+/* =========================================
+   TABLE ALIGNMENT & UNIFORMITY FIXES
+   ========================================= */
+
+/* 1. Force all tables to respect strict sizing so they align perfectly */
+.disclosure-table {
+    table-layout: fixed; 
+    width: 100%;
+    word-wrap: break-word; /* Prevents long URLs from stretching columns */
+}
+
+/* 2. Utility class to center the final column of any table */
+.center-last-col th:last-child,
+.center-last-col td:last-child {
+    text-align: center;
+}
+
+/* 3. Ensure the PDF links look perfectly centered inside the centered column */
+.center-last-col .doc-link {
+    margin-left: 0 !important;
+}
+
+
+/* --- Facility Cards with Images --- */
+.facility-card.image-card {
+    padding: 0; /* Removes padding so the image touches the edges */
+    overflow: hidden;
+    border-left: none; 
+    border-bottom: 5px solid var(--accent-gold); /* Moves the gold accent to the bottom */
+}
+
+.facility-card .facility-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background: #e0e0e0; /* Gray placeholder color if image is missing */
+}
+
+.facility-content {
+    padding: 25px;
+}
+
+
+/* --- Text-Only Faculty Cards --- */
+.faculty-card.no-image {
+    padding: 35px 20px;
+    border-top: 6px solid var(--primary-blue);
+    border-bottom: 6px solid var(--accent-gold);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.faculty-card.no-image .faculty-info {
+    padding: 0; /* Resets padding since there's no image */
+}
+
+.faculty-card.no-image .subject-info {
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 15px;
+    background: var(--bg-light);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+
+
+
+/* =========================================
+   HOMEPAGE SPECIFIC STYLES
+   ========================================= */
+
+/* Nav Scrolling Effect (Turns solid blue on scroll) */
+nav {
+    transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+}
+nav.scrolled {
+    background: var(--primary-blue) !important;
+    padding: 10px 5%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: fixed; /* Keeps it at the top when scrolling */
+}
+
+/* Beautiful Gradient Hero (Since no photos yet) */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(0, 31, 63, 0.9) 0%, rgba(0, 64, 128, 0.8) 100%), url('../images/hero_placeholder.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    padding: 0 20px;
+}
+.hero-content {
+    max-width: 900px;
+    animation: fadeInUp 1s ease-out;
+}
+.hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
+.hero p { font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9; }
+.hero-btns { display: flex; gap: 20px; justify-content: center; }
+.btn-secondary { background: transparent; border: 2px solid var(--accent-gold); color: var(--accent-gold); padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600; transition: var(--transition); }
+.btn-secondary:hover { background: var(--accent-gold); color: var(--text-light); }
+
+/* Quick Explore Cards (Linking to your new pages) */
+.explore-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: -60px; position: relative; z-index: 10; padding: 0 5%; }
+.explore-card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: var(--transition); border-bottom: 4px solid transparent; }
+.explore-card:hover { transform: translateY(-10px); border-bottom-color: var(--accent-gold); }
+.explore-card h3 { color: var(--primary-blue); margin-bottom: 10px; }
+.explore-card a { color: var(--accent-gold); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 15px; }
+
+/* School Statistics (Updated for high contrast) */
+.stats-section { 
+    background: var(--bg-light); /* Soft light gray background */
+    padding: 80px 0; 
+    text-align: center; 
+    border-top: 1px solid #eaeaea; /* Subtle line to separate it from the main content */
+}
+.stats-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 30px; 
+}
+.stat-box h2 { 
+    font-size: 3.8rem; 
+    color: var(--primary-blue); /* Strong, authoritative navy numbers */
+    margin: 0; 
+    line-height: 1;
+}
+.stat-box p { 
+    font-size: 1.1rem; 
+    font-weight: 600; 
+    color: var(--accent-gold); /* Elegant gold labels */
+    margin-top: 10px; 
+    text-transform: uppercase; /* Makes it look very institutional and premium */
+    letter-spacing: 1px;
+}
+
+/* Notice Board */
+.notice-board { background: white; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); padding: 30px; border-left: 5px solid #d32f2f; }
+.notice-item { padding: 15px 0; border-bottom: 1px solid #eee; }
+.notice-item:last-child { border-bottom: none; }
+.notice-date { color: #d32f2f; font-weight: 600; font-size: 0.9rem; margin-bottom: 5px; display: block; }
+.notice-title { font-weight: 600; color: var(--primary-blue); text-decoration: none; font-family: 'Poppins', sans-serif; transition: var(--transition); }
+.notice-title:hover { color: var(--accent-gold); }
+
+/* Simple fade-in animation for the hero text */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    .hero-btns { flex-direction: column; }
+    .explore-grid { margin-top: 40px; }
+}

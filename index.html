@@ -4,14 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Govt Higher Secondary School Jengging | Official Website</title>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-        <nav>
+        
+        <nav style="background: transparent;">
             <div class="logo-container">
                 <span class="school-name-nav">GHSS Jengging</span>
             </div>
@@ -23,109 +21,120 @@
             </div>
 
             <ul class="nav-links" id="nav-links">
-                <li><a href="index.html"  class="active">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="facilities.html">Facilities</a></li>
                 <li><a href="faculty.html">Faculty</a></li>
                 <li><a href="student-corner.html">Student Corner</a></li>
-                <li>
-                    <a href="mandatory-disclosure.html"
-                        >Mandatory Disclosure</a
-                    >
-                </li>
+                <li><a href="mandatory-disclosure.html">Mandatory Disclosure</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
 
         <header class="hero" id="home">
-            <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1>
-                    Government Higher Secondary School,<br /><span
-                        class="highlight"
-                        >Jengging</span
-                    >
-                </h1>
-                <p>
-                    Empowering Minds, Shaping Futures in the Heart of Arunachal
-                    Pradesh
-                </p>
-                <a href="#about" class="btn btn-primary">Explore Our Vision</a>
+                <h1>Government Higher Secondary School, <span class="highlight">Jengging</span></h1>
+                <p>Empowering Minds, Shaping Futures in the Heart of Arunachal Pradesh. Dedicated to academic excellence and holistic student development.</p>
+                <div class="hero-btns">
+                    <a href="mandatory-disclosure.html" class="btn-primary">CBSE Compliance</a>
+                    <a href="contact.html" class="btn-secondary">Contact Us</a>
+                </div>
             </div>
         </header>
 
+        <div class="explore-grid">
+            <div class="explore-card">
+                <h3>Our Faculty</h3>
+                <p>Meet our highly qualified and dedicated teaching staff guiding our students.</p>
+                <a href="faculty.html">View Directory &rarr;</a>
+            </div>
+            <div class="explore-card">
+                <h3>Campus Facilities</h3>
+                <p>Explore our modern laboratories, library, and spacious classrooms.</p>
+                <a href="facilities.html">Take a Tour &rarr;</a>
+            </div>
+            <div class="explore-card">
+                <h3>Student Corner</h3>
+                <p>Access syllabus, exam routines, and important academic resources.</p>
+                <a href="student-corner.html">Enter Portal &rarr;</a>
+            </div>
+        </div>
+
         <main>
-            <section class="principal-message" id="principal">
-                <div class="container grid-2">
+            <section class="container" style="padding: 100px 20px;">
+                <div class="grid-2" style="align-items: start;">
+                    
                     <div class="message-text">
-                        <h2>Welcome from the Principal</h2>
-                        <p>
-                            "At GHSS Jengging, we strive not only for academic
-                            excellence but also for the holistic development of
-                            every student. We welcome you to join our vibrant
-                            community..."
+                        <h2 style="text-align: left; margin-bottom: 20px;">Welcome to GHSS Jengging</h2>
+                        <p style="font-size: 1.1rem; color: #555; line-height: 1.9;">
+                            Education is the most powerful weapon which you can use to change the world. At Government Higher Secondary School Jengging, we strive not only for academic excellence but also for the holistic development of every student. 
                         </p>
-                        <p class="signature">— Principal [Name]</p>
+                        <p style="font-size: 1.1rem; color: #555; line-height: 1.9; margin-top: 15px;">
+                            Our dedicated faculty ensures that our students are nurtured in a safe, disciplined, and intellectually stimulating environment, preparing them for the challenges of tomorrow.
+                        </p>
+                        <p class="signature" style="font-size: 1.2rem; margin-top: 30px;">— Mr. Tapang Pazing, Principal</p>
                     </div>
-                    <div class="message-image">
-                        <div class="img-placeholder">Principal Photo</div>
+
+                    <div class="notice-board">
+                        <h3 style="color: var(--primary-blue); font-size: 1.8rem; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px;">📌 Notice Board</h3>
+                        
+                        <div class="notice-item">
+                            <span class="notice-date">May 20, 2026</span>
+                            <a href="#" class="notice-title">Admissions Open for Session 2026-27 (Class IX & XI)</a>
+                        </div>
+                        
+                        <div class="notice-item">
+                            <span class="notice-date">May 15, 2026</span>
+                            <a href="mandatory-disclosure.html" class="notice-title">Updated CBSE Mandatory Public Disclosure Data Uploaded</a>
+                        </div>
+                        
+                        <div class="notice-item">
+                            <span class="notice-date">May 10, 2026</span>
+                            <a href="#" class="notice-title">Schedule for First Term Unit Tests Announced</a>
+                        </div>
                     </div>
+
                 </div>
             </section>
 
-            <section class="news-section" id="news">
-                <div class="container">
-                    <h2>Latest Announcements</h2>
-                    <div class="news-grid">
-                        <div class="news-card">
-                            <h3>Admission Notice 2026-27</h3>
-                            <p>
-                                Dates for enrollment for the upcoming academic
-                                session have been announced...
-                            </p>
-                            <a href="#" class="read-more">Read More</a>
-                        </div>
+            <section class="stats-section">
+                <div class="container stats-grid">
+                    <div class="stat-box">
+                        <h2>1980</h2>
+                        <p>Year Established</p>
                     </div>
-                </div>
-            </section>
-
-            <section class="academics-highlights" id="academics">
-                <div class="container">
-                    <h2>Our Academic Excellence</h2>
-                    <div class="highlight-grid">
-                        <div class="highlight-item">
-                            <i class="icon"></i>
-                            <h4>Curriculum</h4>
-                            <p>
-                                Aligned with National Educational Standards (NEP
-                                2020).
-                            </p>
-                        </div>
+                    <div class="stat-box">
+                        <h2>8+</h2>
+                        <p>Dedicated Educators</p>
+                    </div>
+                    <div class="stat-box">
+                        <h2>100%</h2>
+                        <p>Commitment to Excellence</p>
+                    </div>
+                    <div class="stat-box">
+                        <h2>Class 12</h2>
+                        <p>Highest Academic Level</p>
                     </div>
                 </div>
             </section>
         </main>
 
-        <footer id="contact">
-            <div class="container footer-content">
+        <footer id="contact" style="background: var(--primary-blue); color: var(--text-light); padding: 60px 0 20px;">
+            <div class="container footer-content" style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px;">
                 <div class="footer-info">
-                    <h3>Contact Us</h3>
+                    <h3 style="color: var(--accent-gold); margin-bottom: 15px;">Contact Us</h3>
                     <p>Govt Higher Secondary School Jengging,</p>
                     <p>Jengging, Siang District,</p>
-                    <p>Arunachal Pradesh - [PIN Code], India</p>
+                    <p>Arunachal Pradesh - 791002, India</p>
                 </div>
                 <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li>
-                            <a href="mandatory-disclosure.html"
-                                >CBSE Mandatory Disclosure</a
-                            >
-                        </li>
-                        <li><a href="about.html">Our History</a></li>
+                    <h3 style="color: var(--accent-gold); margin-bottom: 15px;">Quick Links</h3>
+                    <ul style="list-style: none; padding: 0; line-height: 2;">
+                        <li><a href="mandatory-disclosure.html" style="color: white; text-decoration: none;">CBSE Mandatory Disclosure</a></li>
+                        <li><a href="contact.html" style="color: white; text-decoration: none;">Contact Administration</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="copyright" style="text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 40px; padding-top: 20px;">
                 <p>&copy; 2026 GHSS Jengging. All Rights Reserved.</p>
             </div>
         </footer>
