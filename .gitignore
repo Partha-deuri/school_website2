@@ -1,0 +1,58 @@
+# =========================
+# 🛑 SECRETS & CREDENTIALS
+# =========================
+*/.env
+*/.env.*
+*.pem
+*.key
+*secret*
+credentials.json
+config.json
+auth.json
+
+# =========================
+# 📦 DEPENDENCIES
+# =========================
+# Node.js
+*/node_modules/
+*/npm-debug.log
+*/yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# =========================
+# 🏗️ BUILD & LOG FILES
+# =========================
+build/
+dist/
+out/
+logs/
+*.log
+coverage/
+
+# =========================
+# 💻 OS & EDITOR FILES
+# =========================
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# IDEs (VS Code, JetBrains, etc.)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+
+# files
+*/imp/
+*/old/

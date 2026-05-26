@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #001f3f;
+  --color-accent: #c5a059;
+  --color-light: #f9f9f9; /* Matched from your CSS */
+  
+  /* Adding your fonts to Tailwind */
+  --font-sans: "Poppins", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+/* Custom Animations for the Homepage */
+@layer utilities {
+  .animate-ticker {
+    animation: ticker 30s linear infinite;
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
