@@ -6,9 +6,9 @@ export default function Home() {
   // --- Hero Slider Logic ---
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    './src/assets/images/gate.jpeg',
-    './src/assets/images/classroom.jpeg',
-    './src/assets/images/students.jpg'
+    '/images/gate.jpeg',
+    '/images/classroom.jpeg',
+    '/images/students.jpg'
   ];
 
   useEffect(() => {
