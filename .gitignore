@@ -29,12 +29,12 @@ env/
 # =========================
 # 🏗️ BUILD & LOG FILES
 # =========================
-build/
-dist/
-out/
-logs/
-*.log
-coverage/
+*/build/
+*/dist/
+*/out/
+*/logs/
+*/*.log
+*/coverage/
 
 # =========================
 # 💻 OS & EDITOR FILES
