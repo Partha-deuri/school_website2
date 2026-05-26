@@ -56,3 +56,5 @@ ehthumbs.db
 # files
 */imp/
 old/
+*/test-db.js
+*/update-db.js
