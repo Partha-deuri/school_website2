@@ -3,19 +3,19 @@ export default function Facilities() {
     {
       title: "Spacious Classrooms",
       desc: "Well-ventilated, well-lit, and spacious classrooms designed to provide a comfortable and focused learning atmosphere for all students.",
-      img: "./src/assets/images/classroom.jpeg",
+      img: "/images/classroom.jpeg",
       alt: "GHSS Jengging Classroom"
     },
     {
       title: "Safe Drinking Water",
       desc: "Health and hygiene are our top priorities. The campus is equipped with purified, safe RO drinking water stations accessible to all students and staff.",
-      img: "./src/assets/images/drinking_water.jpeg",
+      img: "/images/drinking_water.jpeg",
       alt: "RO Drinking Water Facility"
     },
     {
       title: "Hygienic Washrooms",
       desc: "Clean, well-maintained, and separate washroom blocks for boys and girls, ensuring privacy, hygiene, and comfort with regular sanitation.",
-      img: "./src/assets/images/toilet.jpeg",
+      img: "/images/toilet.jpeg",
       alt: "Separate Washrooms for Boys and Girls"
     }
   ];
