@@ -81,7 +81,7 @@ app.post('/api/upload', authenticateToken, upload.single('file'), (req, res) => 
 // ANNOUNCEMENTS API ROUTES
 // ==========================================
 
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
     res.send('GHSS API is running and ready for database queries!');
 });
 
