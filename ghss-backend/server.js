@@ -21,6 +21,7 @@ const {
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '12h';
 
 // Connect to MongoDB Atlas
 connectDB();
@@ -90,7 +91,7 @@ app.post('/api/auth/login', async (req, res) => {
         const token = jwt.sign(
             { id: admin._id, username: admin.username }, 
             process.env.JWT_SECRET, 
-            { expiresIn: '24h' }
+            { expiresIn: JWT_EXPIRES_IN }
         );
         
         res.json({ message: "Login successful", token });
