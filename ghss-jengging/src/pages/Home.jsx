@@ -97,7 +97,7 @@ export default function Home() {
               {tickerNotices.map((notice, idx) => (
                 <span key={notice.id}>
                   <Link to="/announcements" className="hover:underline">
-                    {notice.isNew ? "⭐ " : "🔹 "}{notice.title}
+                    {notice.isRecent ? "⭐ " : "🔹 "}{notice.title}
                   </Link>
                   {/* Add separator if it's not the last item */}
                   {idx < tickerNotices.length - 1 && <span className="opacity-50"> &nbsp; | &nbsp; </span>}
@@ -158,7 +158,7 @@ export default function Home() {
                   <div key={notice.id} className="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
                     <span className="flex items-center text-sm font-bold text-red-600 mb-1">
                       {formatDateForDisplay(notice.date)}
-                      {notice.isNew && (
+                      {notice.isRecent && (
                         <span className="ml-3 text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">
                           New
                         </span>

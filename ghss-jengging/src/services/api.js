@@ -24,7 +24,7 @@ const fetchWithErrorCheck = async (url, options = {}) => {
     // If the token expires, automatically log the user out!
     if (response.status === 401 || response.status === 403) {
       localStorage.removeItem('adminToken');
-      window.location.href = '/admin/login'; // Force them to log in again
+      window.location.href = '/admin-login'; // Force them to log in again
     }
     
     throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
@@ -183,7 +183,33 @@ export const api = {
     return fetchWithErrorCheck(`${BASE_URL}/student-resources/${id}`, {
       method: 'DELETE'
     });
-  }
+  },
+
+  // ==========================================
+  // FACILITIES
+  // ==========================================
+  getFacilities: () => {
+    return fetchWithErrorCheck(`${BASE_URL}/facilities`);
+  },
+  createFacility: (data) => {
+    return fetchWithErrorCheck(`${BASE_URL}/facilities`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+  },
+  updateFacility: (id, data) => {
+    return fetchWithErrorCheck(`${BASE_URL}/facilities/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+  },
+  deleteFacility: (id) => {
+    return fetchWithErrorCheck(`${BASE_URL}/facilities/${id}`, {
+      method: 'DELETE'
+    });
+  },
 
 
 

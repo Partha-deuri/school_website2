@@ -4,7 +4,7 @@ import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 export default function AdminLayout() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Controls mobile view visibility
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
   
   const isActive = (path) => location.pathname === path;
 
@@ -18,7 +18,6 @@ export default function AdminLayout() {
     navigate('/admin-login'); 
   };
 
-  // Helper to automatically close sidebar when a navigation link is clicked on mobile
   const handleNavLinkClick = () => {
     setIsSidebarOpen(false);
   };
@@ -26,8 +25,7 @@ export default function AdminLayout() {
   return (
     <div className="flex h-screen bg-gray-50 font-sans overflow-hidden relative">
       
-      {/* 1. MOBILE OVERLAY SHADE */}
-      {/* When the sidebar is pulled out on mobile, clicking anywhere outside of it closes it */}
+      {/* MOBILE OVERLAY */}
       {isSidebarOpen && (
         <div 
           className="fixed inset-0 bg-black/50 z-30 lg:hidden transition-opacity duration-300"
@@ -35,8 +33,7 @@ export default function AdminLayout() {
         />
       )}
 
-      {/* 2. SIDEBAR */}
-      {/* Dynamic classes: Hidden on small screens, absolute slide-out drawer on mobile, static sidebar on desktop (lg:) */}
+      {/* SIDEBAR */}
       <aside className={`
         fixed inset-y-0 left-0 w-64 bg-primary text-white flex flex-col shadow-xl z-40 transform transition-transform duration-300 ease-in-out
         lg:static lg:translate-x-0
@@ -46,7 +43,6 @@ export default function AdminLayout() {
           <h2 className="text-2xl font-serif font-bold text-accent">GHSS Admin</h2>
           <p className="text-sm opacity-70 mt-1">Control Panel</p>
           
-          {/* Mobile Close Button Inside Sidebar Header */}
           <button 
             onClick={() => setIsSidebarOpen(false)}
             className="absolute top-4 right-4 text-white/70 hover:text-white lg:hidden text-2xl"
@@ -60,6 +56,7 @@ export default function AdminLayout() {
           <Link to="/admin/announcements" onClick={handleNavLinkClick} className={linkStyle('/admin/announcements')}>📢 Announcements</Link>
           <Link to="/admin/faculty" onClick={handleNavLinkClick} className={linkStyle('/admin/faculty')}>👨‍🏫 Faculty</Link>
           <Link to="/admin/student-corner" onClick={handleNavLinkClick} className={linkStyle('/admin/student-corner')}>🎓 Student Corner</Link>
+          <Link to="/admin/facilities" onClick={handleNavLinkClick} className={linkStyle('/admin/facilities')}>🏢 Facilities</Link>
           <Link to="/admin/mandatory-disclosure" onClick={handleNavLinkClick} className={linkStyle('/admin/mandatory-disclosure')}>📝 Disclosures</Link>
           <Link to="/admin/settings" onClick={handleNavLinkClick} className={linkStyle('/admin/settings')}>⚙️ Settings</Link>
           <Link to="/admin/security" onClick={handleNavLinkClick} className={linkStyle('/admin/security')}>🔒 Security</Link>
@@ -75,20 +72,15 @@ export default function AdminLayout() {
         </div>
       </aside>
 
-      {/* 3. MAIN CONTENT AREA */}
+      {/* MAIN CONTENT AREA */}
       <div className="flex-1 flex flex-col overflow-hidden w-full">
         
-        {/* Top Header */}
         <header className="bg-white shadow-sm border-b border-gray-200 px-4 sm:px-8 py-4 flex justify-between items-center z-10">
-          
-          {/* HAMBURGER ICON (Visible only on mobile/tablet) */}
           <div className="flex items-center space-x-3">
             <button 
               onClick={() => setIsSidebarOpen(true)}
               className="p-2 -ml-2 text-primary hover:bg-gray-100 rounded-md lg:hidden transition-colors focus:outline-none"
-              aria-label="Open Menu"
             >
-              {/* Modern 3-line hamburger menu vector */}
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -101,7 +93,6 @@ export default function AdminLayout() {
           </span>
         </header>
 
-        {/* Dynamic Page Content */}
         <main className="flex-1 overflow-y-auto p-4 sm:p-8">
           <Outlet /> 
         </main>

@@ -11,9 +11,10 @@ export default function AdminAnnouncements() {
   const [isSaving, setIsSaving] = useState(false);
   
   const initialFormState = { 
-    title: '', date: '', content: '', linkUrl: '', fileName: '', fileUrl: '',
-    isNew: false, showOnHome: false, showInTicker: false 
-  };
+  title: '', content: '', linkUrl: '', fileName: '', fileUrl: '', 
+  isRecent: false, // <-- Change this here
+  showOnHome: true, showInTicker: false 
+};
   const [formData, setFormData] = useState(initialFormState);
 
  
@@ -111,7 +112,7 @@ export default function AdminAnnouncements() {
     setFormData({
       ...item,
       date: formattedDate,
-      isNew: !!item.isNew,
+      isRecent: !!item.isRecent,
       showOnHome: !!item.showOnHome,
       showInTicker: !!item.showInTicker
     });
@@ -227,7 +228,7 @@ export default function AdminAnnouncements() {
                   accept=".pdf, image/png, image/jpeg, image/jpg" 
                   onChange={handleFileUpload}
                   disabled={isUploading}
-                  className="w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-white file:text-primary file:border file:border-gray-300 hover:file:bg-gray-100 cursor-pointer disabled:opacity-50" 
+                  className="w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:text-sm file:font-semibold file:bg-white file:text-primary file:border file:border-gray-300 hover:file:bg-gray-100 cursor-pointer disabled:opacity-50" 
                 />
                 {isUploading && <p className="text-xs text-accent mt-2 animate-pulse font-semibold">Uploading file to cloud...</p>}
               </div>
@@ -236,7 +237,7 @@ export default function AdminAnnouncements() {
             {/* Visibility Checkboxes */}
             <div className="bg-gray-50 p-4 rounded-md border border-gray-200 flex flex-wrap gap-6">
               <label className="flex items-center space-x-2 cursor-pointer">
-                <input type="checkbox" name="isNew" checked={formData.isNew} onChange={handleInputChange} className="w-4 h-4 text-primary rounded border-gray-300" />
+                <input type="checkbox" name="isRecent" checked={formData.isRecent} onChange={handleInputChange} className="w-4 h-4 text-primary rounded border-gray-300" />
                 <span className="text-sm font-medium text-gray-700">Mark as "New"</span>
               </label>
               <label className="flex items-center space-x-2 cursor-pointer">
@@ -300,7 +301,7 @@ export default function AdminAnnouncements() {
                       )}
                     </td>
                     <td className="p-4 space-y-2">
-                      {!!item.isNew && <span className="block w-max bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold">NEW</span>}
+                      {!!item.isRecent && <span className="block w-max bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold">NEW</span>}
                       {!!item.showOnHome && <span className="block w-max bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-semibold">Homepage</span>}
                       {!!item.showInTicker && <span className="block w-max bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-xs font-semibold">Ticker</span>}
                     </td>

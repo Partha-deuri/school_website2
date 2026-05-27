@@ -25,6 +25,7 @@ import AdminMandatoryDisclosure from './pages/admin/AdminMandatoryDisclosure';
 import AdminSettings from './pages/admin/AdminSettings';
 import AdminSecurity from './pages/admin/AdminSecurity';
 import AdminStudentCorner from './pages/admin/AdminStudentCorner';
+import AdminFacilities from './pages/admin/AdminFacilities';
 
 function App() {
   return (
@@ -54,9 +55,10 @@ function App() {
             <Route index element={<AdminDashboard />} />
             <Route path="announcements" element={<AdminAnnouncements />} />
             <Route path="faculty" element={<AdminFaculty />} /> 
+            <Route path="facilities" element={<AdminFacilities />} />
+            <Route path="student-corner" element={<AdminStudentCorner />} />
             <Route path="mandatory-disclosure" element={<AdminMandatoryDisclosure />} />
             <Route path="settings" element={<AdminSettings />} />
-            <Route path="student-corner" element={<AdminStudentCorner />} />
             <Route path="security" element={<AdminSecurity />} />
           </Route>
         </Route>

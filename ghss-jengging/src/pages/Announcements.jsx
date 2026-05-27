@@ -78,7 +78,7 @@ export default function Announcements() {
                 {formatDateForDisplay(notice.date)}
                 
                 {/* Dynamically show the NEW tag if checked in Admin Panel */}
-                {!!notice.isNew && (
+                {!!notice.isRecent && (
                   <span className="ml-3 text-xs bg-red-100 text-[#d32f2f] px-2 py-0.5 rounded font-bold uppercase tracking-wider">
                     New
                   </span>
