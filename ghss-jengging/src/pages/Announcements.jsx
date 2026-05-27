@@ -34,7 +34,7 @@ export default function Announcements() {
     <div className="flex flex-col font-sans animate-fade-in-up">
       
       {/* PAGE HEADER */}
-      <header className="h-[40vh] bg-gradient-to-br from-primary to-[#004080] flex items-center justify-center text-white text-center pt-[50px] mt-[-30px] shadow-[inset_0_-5px_15px_rgba(0,0,0,0.2)]">
+      <header className="h-[40vh] bg-linear-to-br from-primary to-[#004080] flex items-center justify-center text-white text-center pt-12.5 -mt-7.5 shadow-[inset_0_-5px_15px_rgba(0,0,0,0.2)]">
         <div>
           <h1 className="text-5xl text-accent mb-3 font-serif font-bold">Announcements</h1>
           <p className="text-lg opacity-90">Latest news, circulars, and official updates from GHSS Jengging</p>
@@ -42,10 +42,10 @@ export default function Announcements() {
       </header>
 
       {/* MAIN CONTENT */}
-      <main className="container mx-auto px-5 py-[80px]">
+      <main className="container mx-auto px-5 py-20">
         
         {/* White Card Container */}
-        <div className="max-w-[900px] mx-auto bg-white p-[40px] rounded-xl shadow-[0_5px_20px_rgba(0,0,0,0.05)]">
+        <div className="max-w-225 mx-auto bg-white p-10 rounded-xl shadow-[0_5px_20px_rgba(0,0,0,0.05)]">
           
           {/* Loading State */}
           {isLoading && (
@@ -72,9 +72,9 @@ export default function Announcements() {
           {!isLoading && !error && announcements.map((notice) => (
             <div 
               key={notice.id} 
-              className="border-b border-[#eee] pb-[30px] mb-[30px] last:border-b-0 last:pb-[10px] last:mb-0"
+              className="border-b border-[#eee] pb-7.5 mb-7.5 last:border-b-0 last:pb-2.5 last:mb-0"
             >
-              <span className="text-[#d32f2f] font-semibold text-[0.95rem] block mb-2 flex items-center">
+              <span className="text-[#d32f2f] font-semibold text-[0.95rem] block mb-2 items-center">
                 {formatDateForDisplay(notice.date)}
                 
                 {/* Dynamically show the NEW tag if checked in Admin Panel */}
@@ -85,7 +85,7 @@ export default function Announcements() {
                 )}
               </span>
               
-              <h2 className="text-primary text-[1.6rem] font-serif font-bold mb-[15px]">
+              <h2 className="text-primary text-[1.6rem] font-serif font-bold mb-3.75">
                 {notice.title}
               </h2>
               
@@ -93,7 +93,7 @@ export default function Announcements() {
                 {notice.content}
               </p>
               
-              <div className="mt-[15px] flex flex-wrap gap-4 items-center">
+              <div className="mt-3.75 flex flex-wrap gap-4 items-center">
                 {/* Optional Internal/External Link */}
                 {notice.linkUrl && (
                   notice.linkUrl.startsWith('http') ? (

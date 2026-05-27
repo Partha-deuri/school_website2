@@ -191,8 +191,13 @@ export default function Home() {
               { num: 'Class 12', label: 'Highest Academic Level' }
             ].map((stat, idx) => (
               <div key={idx}>
-                <h2 className="text-6xl md:text-7xl font-bold font-serif text-primary mb-3">{stat.num}</h2>
-                <p className="text-accent font-bold tracking-[0.15em] uppercase text-sm">{stat.label}</p>
+                {/* Changed font from serif to a heavy, tightly tracked sans-serif */}
+                <h2 className="text-5xl md:text-7xl font-black font-sans tracking-tight text-primary mb-3">
+                  {stat.num}
+                </h2>
+                <p className="text-accent font-bold tracking-[0.15em] uppercase text-sm font-sans">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>

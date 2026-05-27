@@ -172,7 +172,7 @@ export default function AdminSettings() {
               ></textarea>
             </div>
             
-            <div className="col-span-full">
+            {/* <div className="col-span-full">
               <label className="block text-sm font-medium text-gray-700 mb-1">Google Maps Embed URL</label>
               <input 
                 type="text" 
@@ -183,7 +183,7 @@ export default function AdminSettings() {
                 className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:border-accent text-sm text-gray-600" 
               />
               <p className="text-xs text-gray-400 mt-1">Used to display the interactive map on the Contact page.</p>
-            </div>
+            </div> */}
           </div>
         )}
 
@@ -231,7 +231,7 @@ export default function AdminSettings() {
                   accept="image/png, image/jpeg, image/svg+xml" 
                   onChange={handleLogoUpload}
                   disabled={isUploading}
-                  className="w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-white file:text-primary file:border file:border-gray-300 hover:file:bg-gray-100 cursor-pointer disabled:opacity-50" 
+                  className="w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:text-sm file:font-semibold file:bg-white file:text-primary file:border file:border-gray-300 hover:file:bg-gray-100 cursor-pointer disabled:opacity-50" 
                 />
               </div>
             </div>

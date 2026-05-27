@@ -22,21 +22,21 @@ export default function Facilities() {
 
   return (
     <div className="flex flex-col font-sans animate-fade-in-up">
-      <header className="h-[40vh] bg-gradient-to-br from-primary to-[#004080] flex items-center justify-center text-white text-center pt-[50px] mt-[-30px] shadow-[inset_0_-5px_15px_rgba(0,0,0,0.2)]">
+      <header className="h-[40vh] bg-linear-to-br from-primary to-[#004080] flex items-center justify-center text-white text-center pt-12.5 -mt-7.5 shadow-[inset_0_-5px_15px_rgba(0,0,0,0.2)]">
         <div>
           <h1 className="text-5xl text-accent mb-3 font-serif font-bold">Our Facilities</h1>
           <p className="text-lg opacity-90">State-of-the-art infrastructure for holistic development</p>
         </div>
       </header>
 
-      <main className="container mx-auto max-w-7xl px-5 py-[60px]">
+      <main className="container mx-auto max-w-7xl px-5 py-15">
         {isLoading && <div className="text-center py-12 text-primary font-semibold animate-pulse text-lg">Loading facilities...</div>}
         
         {!isLoading && facilities.length === 0 && (
           <div className="text-center py-12 text-gray-500 font-medium text-lg">Facilities data is being updated. Check back soon!</div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7.5 mt-10">
           {facilities.map((facility) => (
             <div key={facility.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
               {facility.imageUrl ? (
