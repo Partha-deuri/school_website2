@@ -304,6 +304,10 @@ app.delete('/api/facilities/:id', authenticateToken, async (req, res) => {
 app.get('/', (req, res) => res.send('GHSS API (MongoDB) is running!'));
 app.get('/api', (req, res) => res.send('GHSS API (MongoDB) is running!'));
 
+app.get('/api/ping', (req, res) => {
+    res.status(200).send('OK');
+});
+
 app.listen(PORT, () => {
     console.log(`🚀 Server connected and running on port ${PORT}`);
 });
