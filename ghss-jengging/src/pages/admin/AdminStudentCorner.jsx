@@ -177,7 +177,7 @@ export default function AdminStudentCorner() {
                 accept=".pdf, image/png, image/jpeg" 
                 onChange={handleFileUpload}
                 disabled={isUploading}
-                className="w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-white file:text-primary file:border file:border-gray-300 hover:file:bg-gray-100 cursor-pointer disabled:opacity-50" 
+                className="w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:text-sm file:font-semibold file:bg-white file:text-primary file:border file:border-gray-300 hover:file:bg-gray-100 cursor-pointer disabled:opacity-50" 
               />
               {isUploading && <p className="text-xs text-accent mt-2 animate-pulse font-semibold">Uploading file to cloud...</p>}
             </div>
