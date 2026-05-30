@@ -88,8 +88,8 @@ export default function AdminStudentCorner() {
     setFormData({
       title: item.title || '',
       description: item.description || '',
-      fileName: item.file_name || '', // Note: mapping from DB snake_case
-      fileUrl: item.file_url || ''
+      fileName: item.fileName || '', // Note: mapping from DB snake_case
+      fileUrl: item.fileUrl || ''
     });
     setEditId(item.id);
     setShowForm(true);
@@ -219,14 +219,14 @@ export default function AdminStudentCorner() {
                     </td>
                     <td className="p-4">
                       <p className="text-sm text-gray-600 mb-2">{item.description}</p>
-                      {item.file_name && item.file_url && (
+                      {item.fileName && item.fileUrl && (
                         <a 
-                          href={item.file_url} 
+                          href={item.fileUrl} 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="inline-block bg-blue-50 text-blue-700 hover:bg-blue-100 px-3 py-1.5 rounded text-xs font-semibold border border-blue-200 transition-colors shadow-sm"
                         >
-                          📎 {item.file_name}
+                          📎 {item.fileName}
                         </a>
                       )}
                     </td>

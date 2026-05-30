@@ -73,15 +73,14 @@ export default function StudentCorner() {
                 </div>
                 
                 {/* Only render the button if an attachment exists */}
-                {resource.file_url && (
+                {resource.fileUrl && (
                   <div>
                     <a 
-                      href={resource.file_url} 
+                      href={resource.fileUrl} 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-2 bg-accent text-white px-[15px] py-[8px] text-[0.9rem] rounded-md font-semibold hover:bg-[#b18d4e] hover:-translate-y-1 transition-all duration-300"
+                      className="inline-flex items-center space-x-2 bg-primary text-white px-[15px] py-[8px] text-[0.9rem] rounded-md font-semibold hover:bg-[#2b408e] hover:-translate-y-1 transition-all duration-300"
                     >
-                      <span>📎</span>
                       <span>View Document</span>
                     </a>
                   </div>

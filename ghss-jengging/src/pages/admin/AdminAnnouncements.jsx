@@ -12,7 +12,7 @@ export default function AdminAnnouncements() {
   
   const initialFormState = { 
   title: '', content: '', linkUrl: '', fileName: '', fileUrl: '', 
-  isRecent: false, // <-- Change this here
+  isRecent: true, 
   showOnHome: true, showInTicker: false 
 };
   const [formData, setFormData] = useState(initialFormState);
